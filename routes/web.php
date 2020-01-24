@@ -11,10 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/', 'HomeController@index')->name('index');
+
+    Route::get('/usuarios', 'UserController@index')->name('user-list');
+
+    Route::prefix('/usuario')->group(function() {
+        Route::get('/{user_id}/perfil', 'UserController@profile')->name('user-profile');
+        Route::post('/{user_id}/status', 'UserController@enableUser')->name('user-status');
+    });
+
+    Route::get('/home', function () {
+        return redirect()->route('index');
+    });
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
