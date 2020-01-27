@@ -4,9 +4,10 @@
 <div class="container">
     <table class="table table-condensed">
         <thead>
-            <th>id</th>
+            <th>ID</th>
             <th>Nome</th>
             <th>E-mail</th>
+            <th>Tipo de usuário</th>
             <th>Status</th>
             <th></th>
         </thead>
@@ -17,13 +18,15 @@
                 <td>{{$User->id}}</td>
                 <td>{{$User->name}}</td>
                 <td>{{$User->email}}</td>
+                <td>{{Helper::get_roles($User->role, 'label')}}</td>
+                <td>{{$User->email}}</td>
                 <td>
                     <p><span class="label label-{{$User->status ? 'success' : 'danger'}}">{{$User->status ? 'ATIVO' : 'DESATIVADO'}}</span></p>
                 </td>
                 <td>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="glyphicon glyphicon-option-vertica" aria-hidden="true"></span>
+                    <div class="btn-group dropdown pull-right">
+                        <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="glyphicon glyphicon-option-vertical" aria-hidden="true"></span>
                         </button>
                         <ul class="dropdown-menu">
                         <li>
@@ -31,7 +34,7 @@
                         </li>
                         <li>
                             <a href="#"  class="user_update_status" data-status="{{!$User->active}}" data-user="{{$User->id}}">
-                                {{$User->status ? 'Ativar' : 'Desativar'}}
+                                {{!$User->status ? 'Ativar' : 'Desativar'}} usuário
                             </a>
                         </li>
                         </ul>

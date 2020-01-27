@@ -16,6 +16,7 @@ class AddColumnsUsersTable extends Migration
         //
         Schema::table('users', function(Blueprint $table) {
             $table->boolean('status')->default(false);
+            $table->bigInteger('role')->default(1);
         });
     }
 

@@ -26,17 +26,23 @@ class UserController extends Controller
     public function enableUser(Request $request, $user_id) {
 
         if ($user_id) {
+            $User = User::find($user_id);
 
-            
+            if ($User) {
+                $User->status = !($User->status);
 
-            return response()->json([
-                'status' => true
-            ]);
+                if ($User->save()) {
+
+                    return response()->json([
+                        'status' => true
+                    ]);
+                } 
+            }
         }
 
         return response()->json([
             'status' => false,
-            'message' => 'Usuario não encontrado'
+            'message' => 'Erro ao habilitar usuario.'
         ]);
     }
 

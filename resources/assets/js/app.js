@@ -30,7 +30,8 @@ $(function() {
     });
 
     //Habilitar ou desabilitar o usuario
-    $('.user_update_status').click(function() {
+    $('.user_update_status').click(function(event) {
+
         var id = $(this).attr('data-user');
         var status = $(this).attr('data-status');
 
@@ -41,7 +42,7 @@ $(function() {
                 data: {status},
                 success: function(res) {
                     if (res.status) {
-                        // location.reload();
+                        location.reload();
                     }
                 }
             });
