@@ -23,6 +23,33 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $collection = collect([
+            [
+                'syndicate' => 'SINDPAES',
+                'president' => 'Arthur Pinheiro',
+                'regional' => 'Firjan Caxias',
+                'photo_name' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN0EvP_9m2dfE6JvA61lFRctFY9xSGk7NYjC74VpztX-fp_LxpHA&s'
+            ],
+            [
+                'syndicate' => 'SINDPAES',
+                'president' => 'Arthur Pinheiro',
+                'regional' => 'Firjan Caxias',
+                'photo_name' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN0EvP_9m2dfE6JvA61lFRctFY9xSGk7NYjC74VpztX-fp_LxpHA&s'
+            ],
+            [
+                'syndicate' => 'SINDPAES',
+                'president' => 'Arthur Pinheiro',
+                'regional' => 'Firjan Caxias',
+                'photo_name' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN0EvP_9m2dfE6JvA61lFRctFY9xSGk7NYjC74VpztX-fp_LxpHA&s'
+            ],
+            [
+                'syndicate' => 'SINDPAES',
+                'president' => 'Arthur Pinheiro',
+                'regional' => 'Firjan Caxias',
+                'photo_name' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN0EvP_9m2dfE6JvA61lFRctFY9xSGk7NYjC74VpztX-fp_LxpHA&s'
+            ]
+        ]);
+        
+        return view('home', ['Items' => $collection]);
     }
 }
