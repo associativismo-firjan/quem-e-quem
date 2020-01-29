@@ -14,10 +14,12 @@ class CreateTableSyndicatesStates extends Migration
     public function up()
     {
         //
+        dump('Create table syndicates_states');
+        
         Schema::create('syndicates_states', function(Blueprint $table) {
             $table->increments('id');
-            $table->integer('syndicate_id')->unsigned();
-            $table->integer('state_id')->unsigned();
+            $table->smallInteger('syndicate_id')->unsigned();
+            $table->smallInteger('state_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('syndicate_id')->references('id')->on('syndicates');

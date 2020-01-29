@@ -13,6 +13,8 @@ class CreateSyndicatesTable extends Migration
      */
     public function up()
     {
+        dump('Create table syndicates');
+        
         Schema::create('syndicates', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
@@ -23,7 +25,7 @@ class CreateSyndicatesTable extends Migration
             $table->bigInteger('status_firjan_membership')->nullable();
             $table->bigInteger('status_CNI_membership')->nullable();
             $table->bigInteger('matriz')->nullable();
-            $table->integer('regional_id')->unsigned();
+            $table->smallInteger('regional_id')->unsigned();
             $table->timestamps();
         });
     }

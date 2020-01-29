@@ -14,10 +14,12 @@ class CreateTableSyndicatesCities extends Migration
     public function up()
     {
         //
+        dump('Create table syndicates_cities');
+        
         Schema::create('syndicates_cities', function(Blueprint $table) {
             $table->increments('id');
-            $table->integer('syndicate_id');
-            $table->integer('city_id');
+            $table->smallInteger('syndicate_id');
+            $table->smallInteger('city_id');
             $table->timestamps();
 
             $table->foreign('syndicate_id')->references('id')->on('syndicates');

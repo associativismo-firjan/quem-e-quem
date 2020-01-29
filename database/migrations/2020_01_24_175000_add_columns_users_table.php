@@ -14,6 +14,8 @@ class AddColumnsUsersTable extends Migration
     public function up()
     {
         //
+        dump('Create table users');
+
         Schema::table('users', function(Blueprint $table) {
             $table->boolean('status')->default(false);
             $table->bigInteger('role')->default(1);

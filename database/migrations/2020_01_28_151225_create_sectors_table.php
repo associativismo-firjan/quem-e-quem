@@ -13,6 +13,8 @@ class CreateSectorsTable extends Migration
      */
     public function up()
     {
+        dump('Create table sectors');
+        
         Schema::create('sectors', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');

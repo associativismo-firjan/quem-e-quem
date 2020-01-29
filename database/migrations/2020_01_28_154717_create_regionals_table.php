@@ -13,6 +13,8 @@ class CreateRegionalsTable extends Migration
      */
     public function up()
     {
+        dump('Create table regionals');
+        
         Schema::create('regionals', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');

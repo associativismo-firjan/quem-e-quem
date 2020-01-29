@@ -14,10 +14,12 @@ class CreateTableSyndicatesSectors extends Migration
     public function up()
     {
         //
+        dump('Create table syndicates_sectors');
+        
         Schema::create('syndicates_sectors', function(Blueprint $table) {
             $table->increments('id');
-            $table->integer('syndicate_id')->unsigned();
-            $table->integer('sector_id')->unsigned();
+            $table->smallInteger('syndicate_id')->unsigned();
+            $table->smallInteger('sector_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('syndicate_id')->references('id')->on('syndicates');
