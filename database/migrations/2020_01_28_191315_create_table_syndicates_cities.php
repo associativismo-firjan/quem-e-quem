@@ -14,12 +14,10 @@ class CreateTableSyndicatesCities extends Migration
     public function up()
     {
         //
-        dump('Create table syndicates_cities');
-        
         Schema::create('syndicates_cities', function(Blueprint $table) {
-            $table->increments('id');
-            $table->smallInteger('syndicate_id');
-            $table->smallInteger('city_id');
+            $table->bigIncrements('id');
+            $table->bigInteger('syndicate_id')->unsigned();
+            $table->bigInteger('city_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('syndicate_id')->references('id')->on('syndicates');
@@ -35,10 +33,6 @@ class CreateTableSyndicatesCities extends Migration
     public function down()
     {
         //
-        Schema::table('syndicates_cities', function(Blueprint $table) {
-            $table->dropForeign(['syndicate_id', 'city_id']);
-        });
-        
         Schema::dropIfExists('syndicates_cities');
     }
 }

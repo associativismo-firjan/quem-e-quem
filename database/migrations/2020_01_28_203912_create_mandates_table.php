@@ -13,10 +13,8 @@ class CreateMandatesTable extends Migration
      */
     public function up()
     {
-        dump('Create table mandates');
-       
         Schema::create('mandates', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->timestamps();
         });
     }

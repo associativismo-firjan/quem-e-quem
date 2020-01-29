@@ -13,10 +13,8 @@ class CreateRegionalsTable extends Migration
      */
     public function up()
     {
-        dump('Create table regionals');
-        
         Schema::create('regionals', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->string('name');
             $table->timestamps();
         });
@@ -34,9 +32,9 @@ class CreateRegionalsTable extends Migration
     public function down()
     {
         Schema::table('syndicates', function(Blueprint $table) {
-            $table->dropForeign('regional_id');
+            $table->dropForeign(['regional_id']);
         });
-
+        
         Schema::dropIfExists('regionals');
     }
 }
