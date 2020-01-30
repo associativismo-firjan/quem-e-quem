@@ -16,6 +16,7 @@ class CreateMandatesTable extends Migration
         Schema::create('mandates', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('term_office');
+            $table->integer('position');
             $table->dateTime('start');
             $table->dateTime('end');
             $table->boolean('status')->default(true);
